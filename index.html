@@ -14,11 +14,16 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            overflow-x: hidden; /* Evita desplazamiento horizontal */
         }
         .container {
             max-width: 100%;
-            margin: 0;
-            padding: 0;
+            margin: 0 auto; /* Centra el contenido */
+            padding: 20px;
+            box-sizing: border-box;
+            min-height: 100vh; /* Mínimo alto de la ventana */
+            display: flex;
+            flex-direction: column;
         }
         header {
             background: #333;
@@ -43,6 +48,8 @@
             color: #333;
             border-bottom: 2px solid #0779e4;
             padding-bottom: 10px;
+            margin-bottom: 10px;
+            text-align: left; /* Alinea los títulos a la izquierda */
         }
         ul {
             list-style-type: none;
@@ -55,41 +62,53 @@
             border-radius: 5px;
         }
         .comparison-table {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
+            width: 100%;
+            border-collapse: collapse; /* Colapsa los bordes de la tabla */
+            margin-top: 20px;
         }
-        .comparison-table div {
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left; /* Alinea el contenido a la izquierda */
         }
-        .comparison-table h3 {
-            color: #0779e4;
+        .comparison-table th {
+            background-color: #f2f2f2;
         }
         footer {
-            background: #333;
-            color: #fff;
+            background: #444; /* Fondo oscuro para el footer */
+            color: #fff; /* Texto blanco */
             text-align: center;
             padding: 20px 0;
-            clear: both;
+            margin-top: auto; /* Coloca el footer al final */
+            width: 100%;
+        }
+        .footer-container {
+            background: #666; /* Fondo más claro para el contenedor del footer */
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            border-top: 2px solid #0779e4;
+        }
+        .footer-container p {
+            margin: 5px 0;
         }
         .cta-button {
-            background: #0779e4;
-            color: #fff;
+            background: #0779e4; /* Fondo azul llamativo */
+            color: #fff; /* Texto blanco */
             padding: 15px 20px;
             text-align: center;
-            display: block;
+            display: inline-block;
             border-radius: 5px;
             margin: 20px auto;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2em;
-            width: fit-content;
+            border: 2px solid #0779e4;
+            transition: background-color 0.3s ease-in-out;
         }
         .cta-button:hover {
-            background: #055dbb;
+            background: #fff; /* Cambio a fondo blanco al pasar el mouse */
+            color: #0779e4; /* Texto azul al pasar el mouse */
         }
         p {
             text-align: justify;
@@ -137,7 +156,7 @@
                 
                 <section class="section-image">
                     <a href="https://wa.me/message/S5U7YAHYUKOBN1"><img class="lazy" src="https://raw.githubusercontent.com/andrescelemin/Smart-Prompt/main/GPT%20Personalizados%201.png" alt="Innovaciones en la medicina y tecnología en la salud"></a>
-                    <p>Tecnología para Negocios</p>
+                    <p>Innovaciones en la Medicina y Tecnología en la Salud</p>
                 </section>
 
                 <section>
@@ -163,13 +182,7 @@
                     <h3>Integración y Automatización</h3>
                     <ul>
                         <li>Integración de los GPTs en los sistemas y flujos de trabajo existentes.</li>
-                        <li>Desarrollo de interfaces y herramientas que faciliten el uso de los GPTs por parte del personal de la empresa.</li>
-                    </ul>
-
-                    <h3>Monitoreo y Mejora Continua</h3>
-                    <ul>
-                        <li>Monitoreo continuo del rendimiento del modelo.</li>
-                        <li>Actualización y refinamiento de prompts y modelos basados en feedback y datos obtenidos.</li>
+                        <li>Desarrollo de soluciones de automatización para optimizar el uso de los modelos de lenguaje.</li>
                     </ul>
 
                     <h3>Soporte y Capacitación</h3>
@@ -180,71 +193,41 @@
                 </section>
 
                 <section>
-                    <h2>Sectores y Casos de Uso</h2>
-                    <h3>Legal</h3>
-                    <ul>
-                        <li>Automatización de la redacción de documentos legales.</li>
-                        <li>Asistencia en la investigación legal y análisis de jurisprudencia.</li>
-                    </ul>
-
-                    <h3>Marketing</h3>
-                    <ul>
-                        <li>Generación de contenido de marketing adaptado a la voz de la marca.</li>
-                        <li>Optimización de campañas publicitarias con análisis predictivo.</li>
-                    </ul>
-
-                    <h3>Salud</h3>
-                    <ul>
-                        <li>Creación de informes médicos y resúmenes de investigaciones.</li>
-                        <li>Asistencia en la gestión de pacientes y recordatorios de citas.</li>
-                    </ul>
-
-                    <h3>Finanzas</h3>
-                    <ul>
-                        <li>Análisis y reportes financieros automáticos.</li>
-                        <li>Asistencia en la gestión de riesgos y cumplimiento normativo.</li>
-                    </ul>
-
-                    <h3>Educación</h3>
-                    <ul>
-                        <li>Generación de material educativo y planes de lecciones personalizados.</li>
-                        <li>Asistencia en la evaluación y retroalimentación de tareas estudiantiles.</li>
-                    </ul>
+                    <h2>Comparación de Características</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Característica</th>
+                                <th>Nuestro Servicio</th>
+                                <th>Servicios Competidores</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="feature">Personalización</td>
+                                <td>Niveles avanzados de personalización con modelos específicos para cada cliente.</td>
+                                <td>Modelos más genéricos y menos adaptados a necesidades específicas.</td>
+                            </tr>
+                            <tr>
+                                <td class="feature">Prompt Engineering</td>
+                                <td>Utilización de técnicas avanzadas de Prompt Engineering para ajuste continuo y optimización.</td>
+                                <td>Enfoque estándar en configuración inicial sin optimización continua.</td>
+                            </tr>
+                            <tr>
+                                <td class="feature">Evolución y Actualización</td>
+                                <td>Modelos que evolucionan y se actualizan con el tiempo basados en feedback y nuevos datos.</td>
+                                <td>Actualizaciones menos frecuentes y dependientes de nuevas versiones de software.</td>
+                            </tr>
+                            <tr>
+                                <td class="feature">Soporte y Consultoría</td>
+                                <td>Soporte técnico y consultoría experta durante todo el ciclo de vida del producto.</td>
+                                <td>Soporte estándar con menos foco en la consultoría personalizada.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
 
                 <section>
-                    <h2>Comparación: GPTs Personalizados vs GPT Genérico</h2>
-                    <div class="comparison-table">
-                        <div>
-                            <h3>Característica</h3>
-                            <p>Relevancia del contenido</p>
-                            <p>Eficiencia</p>
-                            <p>Adaptabilidad</p>
-                            <p>Soporte</p>
-                        </div>
-                        <div>
-                            <h3>GPT Personalizado</h3>
-                            <p>Alta, adaptada a las necesidades específicas del cliente</p>
-                            <p>Optimizada para tareas específicas</p>
-                            <p>Evoluciona con el tiempo y el feedback</p>
-                            <p>Consultoría experta y soporte continuo</p>
-                        </div>
-                        <div>
-                            <h3>GPT Genérico</h3>
-                            <p>General, no específica</p>
-                            <p>Menos eficiente para tareas específicas</p>
-                            <p>Estática, sin adaptaciones personalizadas</p>
-                            <p>Limitado</p>
-                        </div>
-                    </div>
-                </section>
-                
-                <section class="section-image">
-                    <a href="https://wa.me/message/S5U7YAHYUKOBN1"><img class="lazy" src="https://raw.githubusercontent.com/andrescelemin/Smart-Prompt/main/GPT%20Personalizados%203.png" alt="Innovación Tecnológica en la Jurisprudencia"></a>
-                    <p>Innovación Tecnológica</p>
-                </section>
-
-                <section class="cta">
                     <a href="https://wa.me/message/S5U7YAHYUKOBN1" class="cta-button">¡Obtén tu GPT Personalizado Hoy!</a>
                 </section>
             </article>
@@ -257,6 +240,5 @@
             </div>
         </footer>
     </div>
-    <script src="./script.js"></script>
 </body>
 </html>
